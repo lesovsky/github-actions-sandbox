@@ -1,9 +1,9 @@
 ---
-name: Default
+name: Release
 
 on:
   push:
-    branch: [ release ]
+    branches: [ release ]
 
 jobs:
   test:
