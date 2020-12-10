@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run echo
-        run: echo "test ${{ github.head_ref }},  ${{ github.action.base_ref }},  ${{ github.action.head_ref }}, ${{ github.action }}"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
   build:
     runs-on: ubuntu-latest
