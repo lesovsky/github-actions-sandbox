@@ -1,0 +1,26 @@
+---
+name: Default
+
+on:
+  push:
+    tags: [ v* ]
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run echo
+        run: echo "one"
+
+  two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run echo
+        run: echo "two"
+
+  three:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run echo
+        run: echo "three"
+
