@@ -6,20 +6,23 @@ on:
     tags: [ v* ]
 
 jobs:
-  one:
+  test:
     runs-on: ubuntu-latest
+    container: ubuntu:20.04
     steps:
       - name: Run echo
         run: echo "one"
 
-  two:
+  build:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Run echo
         run: echo "two"
 
-  three:
+  deploy:
     runs-on: ubuntu-latest
+    needs: [ test, build ]
     steps:
       - name: Run echo
         run: echo "three"
