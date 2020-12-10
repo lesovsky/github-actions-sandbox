@@ -8,22 +8,21 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ubuntu:20.04
     steps:
       - name: Run echo
-        run: echo "one"
+        run: echo "test ${{ github.base_ref }}"
 
   build:
     runs-on: ubuntu-latest
     needs: test
     steps:
       - name: Run echo
-        run: echo "two"
+        run: echo "build"
 
   deploy:
     runs-on: ubuntu-latest
     needs: [ test, build ]
     steps:
       - name: Run echo
-        run: echo "three"
+        run: echo "deploy"
 
