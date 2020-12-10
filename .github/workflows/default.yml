@@ -22,4 +22,4 @@ jobs:
         env: [ staging, production ]
     steps:
       - name: Run echo
-        run: echo "build -- ${{ matric.env }}"
+        run: echo "build -- ${{ matrix.env }}"
