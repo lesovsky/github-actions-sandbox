@@ -3,7 +3,7 @@ name: Default
 
 on:
   push:
-    tags: [ v* ]
+    branch: [ release ]
 
 jobs:
   test:
@@ -14,9 +14,10 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    needs: test
+    needs: [ test ]
     steps:
       - name: Run echo
-        run: echo "build"
+        run: echo "deploy"
+
