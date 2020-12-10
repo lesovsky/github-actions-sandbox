@@ -17,6 +17,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: test
+    strategy:
+      matrix:
+        env: [ staging, production ]
     steps:
       - name: Run echo
-        run: echo "build"
+        run: echo "build -- ${{ matric.env }}"
