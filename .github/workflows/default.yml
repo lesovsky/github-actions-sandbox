@@ -3,7 +3,9 @@ name: Default
 
 on:
   push:
-    tags: [ v* ]
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   test:
@@ -14,14 +16,14 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    strategy:
-      matrix:
-        env: [ staging, production ]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Run echo
-        run: go build -o hello main.go
+#  build:
+#    runs-on: ubuntu-latest
+#    needs: test
+#    strategy:
+#      matrix:
+#        env: [ staging, production ]
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#      - name: Run echo
+#        run: go build -o hello main.go

@@ -3,7 +3,7 @@ name: Release
 
 on:
   push:
-    branches: [ release ]
+    tags: [ v* ]
 
 jobs:
   test:
@@ -13,6 +13,18 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    strategy:
+      matrix:
+        env: [ staging, production ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run echo
+        run: go build -o hello main.go
 
   deploy:
     runs-on: ubuntu-latest
