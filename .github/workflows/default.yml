@@ -24,7 +24,7 @@ jobs:
         run: |
           wget -q https://github.com/golangci/golangci-lint/releases/download/v1.33.0/golangci-lint-1.33.0-linux-amd64.tar.gz
           tar xvzf golangci-lint-1.33.0-linux-amd64.tar.gz
-          sudo mv golangci-lint-1.33.0-linux-amd64/golangci-lint /usr/local/bin
+          mv golangci-lint-1.33.0-linux-amd64/golangci-lint /usr/local/bin
       - name: Connect to postgres
         run: ping -c 3 postgres
       - name: Run echo
