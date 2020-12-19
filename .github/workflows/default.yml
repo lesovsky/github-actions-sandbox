@@ -21,5 +21,7 @@ jobs:
       matrix:
         env: [ staging, production ]
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Run echo
         run: go build -o hello main.go
