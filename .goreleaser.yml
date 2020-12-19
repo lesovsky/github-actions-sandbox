@@ -1,0 +1,15 @@
+builds:
+  - binary: hello
+    goarch: [amd64]
+    goos:
+      - linux
+archives:
+  - builds: [hello]
+changelog:
+  sort: asc
+nfpms:
+  - vendor: hello
+    homepage: https://github.com/lesovsky/github-actions-sandbox
+    maintainer: Alexey Lesovsky
+    description: Hello is an example binary
+    formats: [deb]

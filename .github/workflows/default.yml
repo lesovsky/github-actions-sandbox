@@ -22,4 +22,4 @@ jobs:
         env: [ staging, production ]
     steps:
       - name: Run echo
-        run: echo "build -- ${{ matrix.env }}"
+        run: go build -o hello main.go
